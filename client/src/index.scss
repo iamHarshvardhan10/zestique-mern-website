@@ -1,68 +1,129 @@
-:root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Nunito+Sans:ital,opsz,wght@0,6..12,200;0,6..12,300;0,6..12,400;0,6..12,500;0,6..12,600;0,6..12,700;0,6..12,800;0,6..12,900;1,6..12,200;1,6..12,300;1,6..12,400;1,6..12,500;1,6..12,600;1,6..12,700;1,6..12,800&family=Outfit:wght@300;400;500;600;700;800;900&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700&family=Zen+Dots&display=swap');
+body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #0a0712;
+    font-family: 'Poppins' , sans-serif ;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+a{
+    text-decoration: none;
 }
 
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0rem 3rem;
+    .navbarLogo{
+        h2{
+            font-size: 2rem;
+            color: white;
+            font-family: 'Courier New', Courier, monospace , sans-serif;
+            letter-spacing: 5px;
+            font-weight: 100;
+        }
+    }
+
+    .navList{
+        ul{
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            li{
+                list-style: none;
+                text-transform: uppercase;
+                color: white;
+                font-weight: 600;
+            }
+            
+            
+        }
+        ul li:nth-child(2){
+            padding: 0.7rem 1.3rem;
+            background-color: #1ac98a;
+            border: 1px solid #1ac98a;
+            border-radius: 24px;
+            color: black;
+            transition: 1s ease-in-out;
+           
+        }
+        ul li:nth-child(2):hover{
+            background-color: #045235;
+            color: whitesmoke;
+            border: 1px solid #1ac98a;
+            opacity: 0.6;
+            cursor: pointer;
+        }
+    }
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
+.homeContainer{
+    background-image:linear-gradient(rgba(16, 12, 35, 0.5),rgba(16, 12, 35, 0.3)),url('./assets/asset\ 0.png');
+    width: 100%;
+    height: calc(100vh - 90px);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    .homeInfo{
+        padding:4rem;
+        display: flex;
+        flex-direction: column;
+        span:nth-child(1){
+            font-size: 18px;
+            color: #1ac98a;
+            text-transform: uppercase;
+            font-weight: 600;
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+        }
+        span:nth-child(2){
+            width: 60%;
+            text-transform: uppercase;
+            line-height: 100px;
+            font-size: 110px;
+            color: white;
+            font-weight: 800;
+        }
+        span:nth-child(3){
+            width: 70%;
+            font-size: 24px;
+            color: #969599;
+            font-weight: 600;
+        }
+    
+    }
+
+    .btn{
+        display: flex;
+        padding: 24px 0rem;
+        gap: 2rem;
+
+        button{
+            padding: 0.8rem 1.5rem;
+            border-radius: 24px;
+            border: 1px solid #1ac98a;
+            background-color: #1ac98a;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: 1s ease-in-out;
+            cursor: pointer;
+        }
+        button:nth-child(2){
+            background-color: transparent;
+            color: #1ac98a;
+        }
+        button:nth-child(1):hover{
+            background-color: #045235;
+            opacity:  0.7;
+            color: white;
+        }
+        button:nth-child(2):hover{
+            background-color: #969599;
+            opacity:  0.5;
+            color: white;
+        }
+    }
 }
