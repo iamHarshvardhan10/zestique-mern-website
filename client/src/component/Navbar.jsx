@@ -12,8 +12,8 @@ const Navbar = () => {
       </div>
       <div className="navList">
         <ul>
-          <li>Menu</li>
-          <li>Reserve A Table</li>
+          <li><Link to='/menu'>Menu</Link></li>
+          <li id="reservation"><Link to="/reserve-a-table">Reserve A Table</Link></li>
 
           {currentUser ? (
             
