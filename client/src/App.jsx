@@ -5,6 +5,9 @@ import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
 import Profile from "./component/Profile";
 import PrivatePage from "./pages/PrivatePage";
+import Menu from "./component/Menu";
+import ReservationTable from "./component/ReservationTable";
+import Footer from "./component/Footer";
 
 const App = () => {
   return (
@@ -15,10 +18,13 @@ const App = () => {
           <Route path="/" element={<Home />} />
           <Route path="/sign-in" element={<SignIn />} />
           <Route path="/sign-up" element={<SignUp />} />
-          <Route element={<PrivatePage/>}>
+          <Route path="/menu" element={<Menu/>} />
+          <Route path="/reserve-a-table" element={<ReservationTable/>} />
+          <Route element={<PrivatePage />}>
             <Route path="/profile" element={<Profile />} />
           </Route>
         </Routes>
+        <Footer/>
       </BrowserRouter>
     </div>
   );
