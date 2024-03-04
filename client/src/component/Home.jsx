@@ -1,6 +1,4 @@
 import About from "./About";
-import Contact from "./Contact";
-import Footer from "./Footer";
 import ReservationTable from "./ReservationTable";
 import Testinomials from "./Testinomials";
 
@@ -22,10 +20,8 @@ const Home = () => {
         </div>
       </div>
       <ReservationTable/>
-      <Contact/>
       <About/>
       <Testinomials/>
-      <Footer/>
     </>
   );
 };
