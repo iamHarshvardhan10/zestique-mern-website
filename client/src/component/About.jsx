@@ -1,12 +1,18 @@
 import aboutImage from "../assets/asset 5.jpeg";
+import { motion } from "framer-motion";
 const About = () => {
   return (
-    <div className="aboutContainer">
+    <motion.div
+      className="aboutContainer"
+      initial={{ opacity: 0, x: -30 }}
+      animate={{ opacity: 1, x: 0 }}
+      transition={{ duration: 2 }}
+    >
       <div className="rowContainer">
         <div className="imgContainer">
           <img src={aboutImage} alt="" />
         </div>
-        <div  className="textContainer">
+        <div className="textContainer">
           <span>About Zestique</span>
           <span>
             Zestique Restaurant, a beloved culinary gem nestled in the heart of
@@ -28,7 +34,7 @@ const About = () => {
           </span>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

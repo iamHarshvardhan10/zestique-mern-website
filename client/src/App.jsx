@@ -8,6 +8,9 @@ import PrivatePage from "./pages/PrivatePage";
 import Menu from "./component/Menu";
 import ReservationTable from "./component/ReservationTable";
 import Footer from "./component/Footer";
+import Admin from "./component/Admin";
+import MenuListing from "./component/MenuListing";
+import EditDashboard from "./component/EditDashboard";
 
 const App = () => {
   return (
@@ -18,13 +21,16 @@ const App = () => {
           <Route path="/" element={<Home />} />
           <Route path="/sign-in" element={<SignIn />} />
           <Route path="/sign-up" element={<SignUp />} />
-          <Route path="/menu" element={<Menu/>} />
-          <Route path="/reserve-a-table" element={<ReservationTable/>} />
+          <Route path="/menu" element={<Menu />} />
+          <Route path="/reserve-a-table" element={<ReservationTable />} />
+          <Route path="/listings/:id" element={<MenuListing />} />
           <Route element={<PrivatePage />}>
             <Route path="/profile" element={<Profile />} />
+            <Route path="/admin-dashboard" element={<Admin />} />
+            <Route path="/edit-dashboard/:id" element={<EditDashboard />} />
           </Route>
         </Routes>
-        <Footer/>
+        <Footer />
       </BrowserRouter>
     </div>
   );

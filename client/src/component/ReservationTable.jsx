@@ -1,11 +1,15 @@
 import Contact from "./Contact";
-
+import {motion} from 'framer-motion'
 
 
 const ReservationTable = () => {
   return (
     <>
-      <div className="reservationTable" id="reservation">
+      <motion.div className="reservationTable" id="reservation"
+      initial={{ opacity: 0, x: -30 }}
+      animate={{ opacity: 1, x: 0 }}
+      transition={{ duration: 1 }}
+      >
         <h1>Reserve A table</h1>
 
         <div className="tableContainer">
@@ -78,7 +82,7 @@ const ReservationTable = () => {
             ></iframe>
           </div>
         </div>
-      </div>
+      </motion.div>
       <Contact/>
     </>
   );

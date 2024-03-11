@@ -4,7 +4,7 @@ import image02 from "../assets/food2.jpg";
 import image03 from "../assets/food3.jpg";
 import image04 from "../assets/food4.jpg";
 import image05 from "../assets/food5.jpg";
-import { Link  , useNavigate} from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const SignUp = () => {
   const [formData, setFormData] = useState({});
@@ -31,7 +31,7 @@ const SignUp = () => {
     },
   ];
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const handleChange = (e) => {
     setFormData({
       ...formData,
@@ -50,7 +50,7 @@ const SignUp = () => {
         body: JSON.stringify(formData),
       });
       const data = await res.json();
-      navigate('/sign-in')
+      navigate("/sign-in");
       console.log(data);
     } catch (error) {
       console.log(error);
@@ -58,19 +58,24 @@ const SignUp = () => {
   };
   return (
     <div className="singUpContainer">
+        <span>Be the part of our delecious menu</span>
+        <span>
+          “Food for us comes from our relatives, whether they have wings or fins
+          or roots. That is how we consider food. Food has a culture. It has a
+          history. It has a story. It has relationships.”
+        </span>
       <div className="insideContainer">
         <div className="rightSignUpContainer">
-          <span>Be the part of our delecious menu</span>
-          <span>
-            “Food for us comes from our relatives, whether they have wings or
-            fins or roots. That is how we consider food. Food has a culture. It
-            has a history. It has a story. It has relationships.”
-          </span>
           <div className="imagesContainer">
             {images.map((item) => {
               return (
                 <>
-                  <img src={item.image} alt="" />
+                  <img
+                    src={item.image}
+                    alt=""
+                    // style={{ width: "175px", height: "155px" }}
+                    className="imageContainer"
+                  />
                 </>
               );
             })}
@@ -78,7 +83,7 @@ const SignUp = () => {
         </div>
         <div className="leftSignUPcontainer">
           <h3>
-            Register Your <span>Account!</span>{" "}
+            Register Your Account!{" "}
           </h3>
           <form onSubmit={handleSubmit}>
             <input

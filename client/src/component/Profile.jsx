@@ -1,7 +1,7 @@
 // import {} from '../redux/user/userSlice'
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import {  Link } from "react-router-dom";
 
 import {
   updateStart,
@@ -19,7 +19,7 @@ const Profile = () => {
   const { currentUser } = useSelector((state) => state.user);
   const [formData, setFormData] = useState({});
   const dispatch = useDispatch();
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const handleChange = (e) => {
     setFormData({
       ...formData,
@@ -62,7 +62,6 @@ const Profile = () => {
         return;
       }
       dispatch(deleteUserSuccess(data));
-      navigate("/sign-in");
     } catch (error) {
       dispatch(deleteUserFailure(error.message));
     }
@@ -73,32 +72,36 @@ const Profile = () => {
       dispatch(signOutStart());
       const res = await fetch("/api/auth/signOut");
       const data = await res.json();
-
+      console.log(data);
       if (data.success == false) {
         dispatch(signOutFailure(data.message));
+        return;
       }
       dispatch(signOutSuccess(data));
+      localStorage.clear();
     } catch (error) {
       dispatch(signOutFailure(error.message));
     }
   };
 
   return (
-    <div className="signInContainer">
+    <div className="profileContainer">
       <div className="insideContainer">
-        <div className="rigthSignInContainer">
+        <div className="TopProfileContainer">
           <span>Glad To see You On Board!</span>
           <span>
             We take pride in offering unparalleled customer support to ensure
             your experience with our Delicious Food.
           </span>
           {currentUser.email === "admin123@gmail.com" ? (
-            <>
-              <p>Admin Dashboard</p>
-            </>
+            <div className="links">
+              <Link to="/admin-dashboard">
+                <p>Admin Dashboard</p>
+              </Link>
+            </div>
           ) : null}
         </div>
-        <div className="leftSignInContainer">
+        <div className="BottomProfileContainer">
           <h3>Your Profile Showcase!!!</h3>
           <form onSubmit={handleSubmit}>
             <input
@@ -121,13 +124,15 @@ const Profile = () => {
               id="password"
               onChange={handleChange}
             />
-            <button type="submit">Update</button>
-            <button className="btn" onClick={deleteUser}>
-              Delete Account
-            </button>
-            <button className="btn" onClick={handleSignOut}>
-              Sing Out
-            </button>
+            <div className="btns">
+              <button type="submit">Update</button>
+              <button className="btn" onClick={deleteUser}>
+                Delete Account
+              </button>
+              <button className="btn" onClick={handleSignOut}>
+                Sing Out
+              </button>
+            </div>
           </form>
         </div>
       </div>

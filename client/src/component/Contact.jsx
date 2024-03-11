@@ -1,8 +1,13 @@
 import { FaPhone, FaWhatsapp, FaVoicemail } from "react-icons/fa";
-
+import { motion } from "framer-motion";
 const Contact = () => {
   return (
-    <div className="contactContainer">
+    <motion.div
+      className="contactContainer"
+      initial={{ opacity: 0, x: -30 }}
+      animate={{ opacity: 1, x: 0 }}
+      transition={{ duration: 2 }}
+    >
       <div className="box">
         <span>
           <FaPhone />
@@ -24,7 +29,7 @@ const Contact = () => {
         <span>Send us an email</span>
         <span>info@zestique.com</span>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

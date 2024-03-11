@@ -1,10 +1,17 @@
-import { BsCart4 } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
+
+import { motion } from "framer-motion";
 const Navbar = () => {
   const { currentUser } = useSelector((state) => state.user);
+  // Framer motion
+
   return (
-    <nav>
+    <motion.nav
+      initial={{ opacity: 0, x: -30 }}
+      animate={{ opacity: 1, x: 0 }}
+      transition={{ duration: 1 }}
+    >
       <div className="navbarLogo">
         <Link to="/">
           <h2>Zestique</h2>
@@ -12,29 +19,25 @@ const Navbar = () => {
       </div>
       <div className="navList">
         <ul>
-          <li><Link to='/menu'>Menu</Link></li>
-          <li id="reservation"><Link to="/reserve-a-table">Reserve A Table</Link></li>
-
-          {currentUser ? (
-            
-              <Link to="/profile">
-                <p style={{ color: "white" }}>
-                  Hello, {`${currentUser.userName}`}
-                </p>
-            
-                </Link>
-          ) : (
-            <Link to="/sign-in">
-              <li>Sign In</li>
-            </Link>
-          )}
-
           <li>
-            <BsCart4 />
+            <Link to="/menu">Menu</Link>
           </li>
+          <li id="reservation">
+            <Link to="/reserve-a-table">Reserve A Table</Link>
+          </li>
+
+          <Link to="/profile">
+            { currentUser ? (
+              <p style={{ color: "white" }}>
+                Hello, {`${currentUser?.userName}`}
+              </p>
+            ) : (
+              <li>Sign In</li>
+            )}
+          </Link>
         </ul>
       </div>
-    </nav>
+    </motion.nav>
   );
 };
 
