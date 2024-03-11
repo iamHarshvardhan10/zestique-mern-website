@@ -1,5 +1,6 @@
 import bcryptjs from 'bcryptjs'
 import User from '../models/user.model.js';
+import Menu from '../models/menu.model.js';
 
 
 export const updateUserInfo = async (req, res, next) => {
@@ -18,7 +19,13 @@ export const updateUserInfo = async (req, res, next) => {
             }
         }, { new: true })
 
-        const { password, ...rest } = updateUser._doc
+        if (!updateUser) {
+            return res.status(404).json({ 'Status': '404', 'Message': 'User not found' });
+        }
+
+
+        const { password, ...rest } = updateUser._doc;
+        
 
         res.status(200).json(rest);
     } catch (error) {
@@ -27,12 +34,22 @@ export const updateUserInfo = async (req, res, next) => {
 };
 
 
-export const deleteUser = async (req , res , next) => {
-    if(req.user.id !== req.params.id) return next(res.send({'status' : '401' , "message" : 'Own Account can delete'}))
+export const deleteUser = async (req, res, next) => {
+    if (req.user.id !== req.params.id) return res.send({ 'status': '401', "message": 'Own Account can delete' })
 
     try {
         await User.findByIdAndDelete(req.params.id)
         res.status(200).json('user deleted!!')
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+
+export const getUserListing = async (req, res, next) => {
+    try {
+        const data = await Menu.find()
+        res.status(200).json(data)
     } catch (error) {
         next(error)
     }
