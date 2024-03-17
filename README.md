@@ -25,8 +25,7 @@ velopment server:</strong><br>
 <h2>Screenshots / Video</h2>
 <p>Here are some screenshots and/or a video demonstrating the features of the Zestique food app:</p>
     <!-- Add your screenshots or embed a video here -->
-        <li><strong>Start the frontend de![screencapture-localhost-5173-2024-03-17-14_26_31](https://github.com/iamHarshvardhan10/foodapp/assets/109547739/575263f1-96f3-48e8-a52d-e27371b15116)
-<img src="" alt="Zestique Food App Screenshot">
+![Zestique Food App Screenshot]([screenshots/zestique_screenshot.png](https://github.com/iamHarshvardhan10/foodapp/assets/109547739/575263f1-96f3-48e8-a52d-e27371b15116) "Zestique Screenshot")
 
 <h2>Contributing</h2>
 <p>If you'd like to contribute to the development of the Zestique food app, feel free to submit pull requests or open issues on the GitHub repository.</p>
